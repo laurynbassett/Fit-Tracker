@@ -1,5 +1,4 @@
 const express = require('express')
-// const { Workout } = require('../fakeDatabase')
 const { Workout } = require('../database')
 const router = express.Router()
 
