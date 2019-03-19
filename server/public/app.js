@@ -86,15 +86,26 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/App.css":
+/*!************************!*\
+  !*** ./client/App.css ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js!./App.css */ \"./node_modules/css-loader/dist/cjs.js!./client/App.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./client/App.css?");
+
+/***/ }),
+
 /***/ "./client/App.js":
 /*!***********************!*\
   !*** ./client/App.js ***!
   \***********************/
-/*! exports provided: default */
+/*! exports provided: App */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components */ \"./client/components/index.js\");\n\n\n\n\nclass App extends react__WEBPACK_IMPORTED_MODULE_0__[\"Component\"] {\n  render() {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n      'div',\n      { className: 'App' },\n      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components__WEBPACK_IMPORTED_MODULE_1__[\"Analytics\"], null)\n    );\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack:///./client/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"App\", function() { return App; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components */ \"./client/components/index.js\");\n/* harmony import */ var _initialState__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./initialState */ \"./client/initialState.js\");\n/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App.css */ \"./client/App.css\");\n/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_App_css__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\n\n\n\nclass App extends react__WEBPACK_IMPORTED_MODULE_0__[\"Component\"] {\n  constructor(props) {\n    super(props);\n\n    this.state = _initialState__WEBPACK_IMPORTED_MODULE_2__[\"initialState\"];\n  }\n\n  render() {\n    const { workouts } = this.state;\n\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n      'div',\n      { className: 'App' },\n      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components__WEBPACK_IMPORTED_MODULE_1__[\"Header\"], null),\n      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components__WEBPACK_IMPORTED_MODULE_1__[\"Main\"], { workouts: workouts })\n    );\n  }\n}\n\n//# sourceURL=webpack:///./client/App.js?");
 
 /***/ }),
 
@@ -113,11 +124,115 @@ eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dis
 /*!****************************************!*\
   !*** ./client/components/Analytics.js ***!
   \****************************************/
-/*! exports provided: default */
+/*! exports provided: Analytics */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Analytics_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Analytics.css */ \"./client/components/Analytics.css\");\n/* harmony import */ var _Analytics_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Analytics_css__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nclass Analytics extends react__WEBPACK_IMPORTED_MODULE_0__[\"Component\"] {\n  render() {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n      'div',\n      { id: 'analytics' },\n      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n        'div',\n        { className: 'box' },\n        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n          'h2',\n          { className: 'box-header' },\n          'Analytics'\n        ),\n        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n          'div',\n          { className: 'box-content' },\n          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n            'table',\n            { className: 'analytics-table' },\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n              'tbody',\n              null,\n              react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n                'tr',\n                { className: 'analytics-table-row' },\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n                  'td',\n                  { className: 'analytics-name' },\n                  'Total Minutes Exercised:'\n                ),\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n                  'td',\n                  { id: 'total-exercised' },\n                  '95'\n                )\n              ),\n              react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n                'tr',\n                { className: 'analytics-table-row' },\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n                  'td',\n                  { className: 'analytics-name' },\n                  'Favorite Exercise:'\n                ),\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n                  'td',\n                  null,\n                  'Running'\n                )\n              ),\n              react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n                'tr',\n                { className: 'analytics-table-row' },\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n                  'td',\n                  { className: 'analytics-name' },\n                  'Percentage Completed:'\n                ),\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n                  'td',\n                  { id: 'percentage-completed' },\n                  '75%'\n                )\n              )\n            )\n          )\n        )\n      )\n    );\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Analytics);\n\n//# sourceURL=webpack:///./client/components/Analytics.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Analytics\", function() { return Analytics; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Analytics_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Analytics.css */ \"./client/components/Analytics.css\");\n/* harmony import */ var _Analytics_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Analytics_css__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nconst Analytics = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n  'div',\n  { id: 'analytics' },\n  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n    'div',\n    { className: 'box' },\n    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n      'h2',\n      { className: 'box-header' },\n      'Analytics'\n    ),\n    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n      'div',\n      { className: 'box-content' },\n      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n        'table',\n        { className: 'analytics-table' },\n        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n          'tbody',\n          null,\n          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n            'tr',\n            { className: 'analytics-table-row' },\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n              'td',\n              { className: 'analytics-name' },\n              'Total Minutes Exercised:'\n            ),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n              'td',\n              { id: 'total-exercised' },\n              '95'\n            )\n          ),\n          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n            'tr',\n            { className: 'analytics-table-row' },\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n              'td',\n              { className: 'analytics-name' },\n              'Favorite Exercise:'\n            ),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n              'td',\n              null,\n              'Running'\n            )\n          ),\n          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n            'tr',\n            { className: 'analytics-table-row' },\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n              'td',\n              { className: 'analytics-name' },\n              'Percentage Completed:'\n            ),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n              'td',\n              { id: 'percentage-completed' },\n              '75%'\n            )\n          )\n        )\n      )\n    )\n  )\n);\n\n//# sourceURL=webpack:///./client/components/Analytics.js?");
+
+/***/ }),
+
+/***/ "./client/components/Header.css":
+/*!**************************************!*\
+  !*** ./client/components/Header.css ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./Header.css */ \"./node_modules/css-loader/dist/cjs.js!./client/components/Header.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./client/components/Header.css?");
+
+/***/ }),
+
+/***/ "./client/components/Header.js":
+/*!*************************************!*\
+  !*** ./client/components/Header.js ***!
+  \*************************************/
+/*! exports provided: Header */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Header\", function() { return Header; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Header_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header.css */ \"./client/components/Header.css\");\n/* harmony import */ var _Header_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Header_css__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nconst Header = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n  'div',\n  { id: 'header' },\n  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n    'h1',\n    null,\n    'Fitness \\uD83D\\uDEB4\\u200D\\u2642\\uFE0F Tracker \\uD83C\\uDFC3\\u200D\\u2640\\uFE0F Pro'\n  )\n);\n\n//# sourceURL=webpack:///./client/components/Header.js?");
+
+/***/ }),
+
+/***/ "./client/components/ListWorkouts.css":
+/*!********************************************!*\
+  !*** ./client/components/ListWorkouts.css ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./ListWorkouts.css */ \"./node_modules/css-loader/dist/cjs.js!./client/components/ListWorkouts.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./client/components/ListWorkouts.css?");
+
+/***/ }),
+
+/***/ "./client/components/ListWorkouts.js":
+/*!*******************************************!*\
+  !*** ./client/components/ListWorkouts.js ***!
+  \*******************************************/
+/*! exports provided: ListWorkouts */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ListWorkouts\", function() { return ListWorkouts; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _SingleWorkout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SingleWorkout */ \"./client/components/SingleWorkout.js\");\n/* harmony import */ var _ListWorkouts_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ListWorkouts.css */ \"./client/components/ListWorkouts.css\");\n/* harmony import */ var _ListWorkouts_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ListWorkouts_css__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n\nconst ListWorkouts = props => {\n  const { workouts } = props;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n    'div',\n    { id: 'workouts' },\n    workouts.map(workout => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleWorkout__WEBPACK_IMPORTED_MODULE_1__[\"SingleWorkout\"], { key: workout.id, workout: workout }))\n  );\n};\n\n//# sourceURL=webpack:///./client/components/ListWorkouts.js?");
+
+/***/ }),
+
+/***/ "./client/components/Main.css":
+/*!************************************!*\
+  !*** ./client/components/Main.css ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./Main.css */ \"./node_modules/css-loader/dist/cjs.js!./client/components/Main.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./client/components/Main.css?");
+
+/***/ }),
+
+/***/ "./client/components/Main.js":
+/*!***********************************!*\
+  !*** ./client/components/Main.js ***!
+  \***********************************/
+/*! exports provided: Main */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Main\", function() { return Main; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Analytics__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Analytics */ \"./client/components/Analytics.js\");\n/* harmony import */ var _ListWorkouts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ListWorkouts */ \"./client/components/ListWorkouts.js\");\n/* harmony import */ var _Main_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Main.css */ \"./client/components/Main.css\");\n/* harmony import */ var _Main_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Main_css__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\n\n\nconst Main = props => {\n  const { workouts } = props;\n\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n    'div',\n    { id: 'main' },\n    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Analytics__WEBPACK_IMPORTED_MODULE_1__[\"Analytics\"], null),\n    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ListWorkouts__WEBPACK_IMPORTED_MODULE_2__[\"ListWorkouts\"], { workouts: workouts })\n  );\n};\n\n//# sourceURL=webpack:///./client/components/Main.js?");
+
+/***/ }),
+
+/***/ "./client/components/SingleExercise.js":
+/*!*********************************************!*\
+  !*** ./client/components/SingleExercise.js ***!
+  \*********************************************/
+/*! exports provided: SingleExercise */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"SingleExercise\", function() { return SingleExercise; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\n/**\n  Check out this video demo: https://youtu.be/19uPqaQVhLc\n  Notice how the manual DOM manipulating JS outside of React conflicts with\n  React.\n */\n\nconst SingleExercise = props => {\n  const { id, name, duration, completed, description } = props.exercise;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n    react__WEBPACK_IMPORTED_MODULE_0__[\"Fragment\"],\n    null,\n    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n      'div',\n      { className: 'exercise-name' },\n      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('i', {\n        id: `exercise-${id}`,\n        className: completed ? 'toggle-complete fas fa-check-circle' : 'toggle-complete far fa-circle'\n      }),\n      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n        'h3',\n        null,\n        name\n      ),\n      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n        'span',\n        null,\n        duration,\n        ' min'\n      )\n    ),\n    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n      'div',\n      null,\n      description\n    )\n  );\n};\n\n//# sourceURL=webpack:///./client/components/SingleExercise.js?");
+
+/***/ }),
+
+/***/ "./client/components/SingleWorkout.css":
+/*!*********************************************!*\
+  !*** ./client/components/SingleWorkout.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./SingleWorkout.css */ \"./node_modules/css-loader/dist/cjs.js!./client/components/SingleWorkout.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./client/components/SingleWorkout.css?");
+
+/***/ }),
+
+/***/ "./client/components/SingleWorkout.js":
+/*!********************************************!*\
+  !*** ./client/components/SingleWorkout.js ***!
+  \********************************************/
+/*! exports provided: SingleWorkout */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"SingleWorkout\", function() { return SingleWorkout; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _SingleExercise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SingleExercise */ \"./client/components/SingleExercise.js\");\n/* harmony import */ var _SingleWorkout_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SingleWorkout.css */ \"./client/components/SingleWorkout.css\");\n/* harmony import */ var _SingleWorkout_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_SingleWorkout_css__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\nconst SingleWorkout = props => {\n  const { name, exercises } = props.workout;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n    'div',\n    { className: 'box' },\n    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n      'div',\n      { className: 'box-header' },\n      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n        'h2',\n        null,\n        name\n      ),\n      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('i', { className: 'edit-workout fas fa-edit' })\n    ),\n    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n      'div',\n      { className: 'box-content' },\n      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n        'ul',\n        { className: 'exercise-list' },\n        exercises.map(exercise => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\n          'li',\n          { key: exercise.id },\n          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleExercise__WEBPACK_IMPORTED_MODULE_1__[\"SingleExercise\"], { exercise: exercise })\n        ))\n      )\n    )\n  );\n};\n\n//# sourceURL=webpack:///./client/components/SingleWorkout.js?");
 
 /***/ }),
 
@@ -125,11 +240,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /*!************************************!*\
   !*** ./client/components/index.js ***!
   \************************************/
-/*! exports provided: Analytics */
+/*! exports provided: Header, Main */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Analytics__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Analytics */ \"./client/components/Analytics.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"Analytics\", function() { return _Analytics__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n\n\n//# sourceURL=webpack:///./client/components/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ \"./client/components/Header.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"Header\", function() { return _Header__WEBPACK_IMPORTED_MODULE_0__[\"Header\"]; });\n\n/* harmony import */ var _Main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Main */ \"./client/components/Main.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"Main\", function() { return _Main__WEBPACK_IMPORTED_MODULE_1__[\"Main\"]; });\n\n// Components which need to be used outside the component folder can be re-exported here\n\n\n\n\n//# sourceURL=webpack:///./client/components/index.js?");
 
 /***/ }),
 
@@ -141,7 +256,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Ana
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ \"./client/App.js\");\n\n\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null), document.getElementById('app'));\n\n//# sourceURL=webpack:///./client/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ \"./client/App.js\");\n\n\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_2__[\"App\"], null), document.getElementById('app'));\n\n//# sourceURL=webpack:///./client/index.js?");
+
+/***/ }),
+
+/***/ "./client/initialState.js":
+/*!********************************!*\
+  !*** ./client/initialState.js ***!
+  \********************************/
+/*! exports provided: initialState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initialState\", function() { return initialState; });\nconst initialState = {\n  workouts: [{\n    id: 1,\n    name: 'Tuesday Routine',\n    exercises: [{\n      id: 1,\n      name: 'Bicycling',\n      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum est volutpat ultricies consequat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',\n      duration: 30,\n      completed: false\n    }, {\n      id: 2,\n      name: 'Running',\n      description: 'Praesent at ex sed diam pellentesque congue pellentesque eu felis. Aliquam erat volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vel orci laoreet, commodo quam in, dignissim purus. Nunc a lacinia eros, sed lobortis ipsum.',\n      duration: 45,\n      completed: false\n    }]\n  }, {\n    id: 2,\n    name: 'Saturday Routine',\n    exercises: [{\n      id: 3,\n      name: 'Swimming',\n      description: 'Vivamus eu consequat ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet mattis augue, eget interdum diam.',\n      duration: 30,\n      completed: true\n    }, {\n      id: 4,\n      name: 'Running',\n      description: 'Cras vestibulum, libero vel convallis molestie, magna tortor tempor lacus, eu aliquet erat magna a lacus. Vestibulum mauris nibh, ultrices in tortor a, eleifend placerat mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In dapibus sed felis pharetra luctus.',\n      duration: 20,\n      completed: true\n    }]\n  }]\n};\n\n//# sourceURL=webpack:///./client/initialState.js?");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./client/App.css":
+/*!**************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./client/App.css ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"* {\\n  box-sizing: border-box;\\n  font-family: \\\"Roboto\\\", Helvetica, \\\"Lucida Grande\\\", sans-serif;\\n}\\n\\nul {\\n  list-style-type: none;\\n  padding: 0;\\n}\\n\\nbody {\\n  margin: 0px;\\n  background-color: #9EE4AE;\\n}\\n\\n.box {\\n  border-radius: 5px;\\n  overflow: hidden;\\n  margin: 0px 0px 8px 0px;\\n  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);\\n  background-color: #EDF5E1;\\n}\\n\\n.box-header {\\n  background-color: #389683;\\n  color: #04386C;\\n  margin: 0px;\\n  padding-left: 10px;\\n  display: flex;\\n  justify-content: space-between;\\n  align-items: center;\\n}\\n\\n.box-header h2 {\\n  margin: 0;\\n}\\n\\n.edit-workout {\\n  margin-left: 25px;\\n  margin-right: 2px;\\n}\\n\\n.box-content {\\n  padding: 0px 10px 0px 10px;\\n}\\n\\n#workouts {\\n  margin-left: 5px;\\n  flex: 2;\\n}\\n\\n.exercise-name {\\n  display: flex;\\n  justify-content: space-between;\\n}\\n\\n.exercise-list li {\\n  margin-bottom: 15px;\\n}\\n\\n.exercise-list h3 {\\n  margin: 0px;\\n  text-decoration: underline;\\n}\\n\\n.analytics-table {\\n  width: 100%;\\n}\\n\\n.analytics-table-row {\\n  display: flex;\\n  justify-content: space-between;\\n  margin: 15px 0px 15px 0px;\\n}\\n\\n.analytics-name {\\n  text-decoration: underline;\\n}\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./client/App.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -153,6 +291,50 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"#analytics {\\n  margin-right: 5px;\\n  flex: 1;\\n}\\n\\n.analytics-table {\\n  width: 100%;\\n}\\n\\n.analytics-table-row {\\n  display: flex;\\n  justify-content: space-between;\\n  margin: 15px 0px 15px 0px;\\n}\\n\\n.analytics-name {\\n  text-decoration: underline;\\n}\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./client/components/Analytics.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./client/components/Header.css":
+/*!****************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./client/components/Header.css ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"#header {\\n  color: #04386C;\\n  background-color: #5CDA95;\\n  display: flex;\\n  justify-content: center;\\n}\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./client/components/Header.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./client/components/ListWorkouts.css":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./client/components/ListWorkouts.css ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./client/components/ListWorkouts.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./client/components/Main.css":
+/*!**************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./client/components/Main.css ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"#main {\\n  display: flex;\\n  justify-content: center;\\n  padding: 10px;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./client/components/Main.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./client/components/SingleWorkout.css":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./client/components/SingleWorkout.css ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./client/components/SingleWorkout.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 

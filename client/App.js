@@ -1,17 +1,28 @@
 import React, { Component } from 'react'
 
 import { 
-  Analytics,
+  Header,
+  Main,
 } from './components'
 
-class App extends Component {
+import { initialState } from './initialState'
+
+import './App.css'
+export class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = initialState
+  }
+
   render() {
+    const { workouts } = this.state
+
     return (
       <div className="App">
-        <Analytics />
+        <Header />
+        <Main workouts={ workouts } />
       </div>
     )
   }
 }
-
-export default App
