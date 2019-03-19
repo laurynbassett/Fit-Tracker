@@ -1,0 +1,18 @@
+#analytics {
+  margin-right: 5px;
+  flex: 1;
+}
+
+.analytics-table {
+  width: 100%;
+}
+
+.analytics-table-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0px 15px 0px;
+}
+
+.analytics-name {
+  text-decoration: underline;
+}
