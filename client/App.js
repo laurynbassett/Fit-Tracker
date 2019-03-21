@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { 
+import {
   Header,
   Main,
 } from './components'
