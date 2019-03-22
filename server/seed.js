@@ -7,27 +7,44 @@ const seedWorkouts = [
   {
     name: "Work the Core",
     date: yesterday,
+    exercises: [
+      {
+        name: 'Bicycling',
+        completed: true,
+        description: 'Bike 10km along the lakefront',
+        duration: 30
+      },
+      {
+        name: 'Weightlifting',
+        completed: false,
+        description: 'Free weights',
+        duration: 200
+      },
+      {
+        name: 'Swimming',
+        completed: true,
+        description: 'Swim to the edge of the earth',
+        duration: 117
+      },
+    ]
   },
   {
     name: "Leg Day",
     date: nextWeek,
-  },
-]
-
-const seedExercises = [
-  {
-    name: 'Bicycling',
-    completed: true,
-    description: 'Bike 10km along the lakefront',
-  },
-  {
-    name: 'Weightlifting',
-    completed: false,
-    description: 'Free weights',
-  },
-  {
-    name: 'Swimming',
-    completed: true,
+    exercises: [
+      {
+        name: 'Swimming',
+        completed: true,
+        description: 'Swim across the canal 37 times',
+        duration: 4
+      },
+      {
+        name: 'Dancing',
+        completed: false,
+        description: 'Swing for me',
+        duration: 19
+      },
+    ]
   },
 ]
 
@@ -36,10 +53,15 @@ async function seed() {
   try {
     console.log('Seeding the database...')
     await db.sync({ force: true })
-    // 👇 Write some code below this line 👇
-    await Workout.bulkCreate(seedWorkouts)
-    await Exercise.bulkCreate(seedExercises)
-    // ☝️️️ Write some code above this line ☝️️
+
+    await Workout.create(seedWorkouts[0], {
+      include: [Exercise]
+    })
+
+    await Workout.create(seedWorkouts[1], {
+      include: [Exercise]
+    })
+
     await db.close()
     console.log('Database was successfully seeded!')
   } catch (err) {
