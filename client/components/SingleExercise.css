@@ -1,0 +1,18 @@
+.exercise-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.exercise-buttons > * {
+  margin-right: 1rem;
+}
+
+.exercise-description {
+  margin-top: 0.5rem;
+}
+
+i:hover {
+  cursor: pointer;
+}

@@ -1,11 +1,13 @@
 const express = require('express')
-const { Workout } = require('../database')
+const { Exercise, Workout } = require('../database')
 const router = express.Router()
 
 // GET all workouts
 router.get('/', async (req, res, next) => {
   try {
-    res.json(await Workout.findAll())
+    const workouts = await Workout.findAll({ include: { model: Exercise } })
+    if (!workouts) return res.sendStatus(404)
+    res.json(workouts)
   } catch (err) {
     next(err)
   }

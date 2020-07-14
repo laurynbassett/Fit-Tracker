@@ -1,0 +1,18 @@
+.edit-workout {
+  margin-left: 25px;
+  margin-right: 2px;
+}
+
+.exercise-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.exercise-list li {
+  margin-bottom: 15px;
+}
+
+.exercise-list h3 {
+  margin: 0px;
+  text-decoration: none;
+}

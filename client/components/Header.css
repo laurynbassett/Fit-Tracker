@@ -1,6 +1,8 @@
 #header {
-  color: #04386C;
-  background-color: #5CDA95;
+  color: #04386c;
+  background-color: #5cda95;
   display: flex;
   justify-content: center;
+  padding-top: 1.2rem;
+  padding-bottom: 0.5rem;
 }

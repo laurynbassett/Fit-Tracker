@@ -1,16 +1,30 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import { Analytics } from './Analytics'
-import { ListWorkouts } from './ListWorkouts'
-
+import { fetchWorkouts, fetchExercises } from '../store'
+import Analytics from './Analytics'
+import ListWorkouts from './ListWorkouts'
 import './Main.css'
-export const Main = (props) => {
-  const { workouts } = props
 
-  return (
-    <div id="main">
-      <Analytics />
-      <ListWorkouts workouts={ workouts } />
-    </div>
-  )
+class Main extends Component {
+  componentDidMount() {
+    this.props.getWorkouts()
+    this.props.getExercises()
+  }
+
+  render() {
+    return (
+      <div id='main'>
+        <Analytics />
+        <ListWorkouts />
+      </div>
+    )
+  }
 }
+
+const mapDispatch = dispatch => ({
+  getWorkouts: () => dispatch(fetchWorkouts()),
+  getExercises: () => dispatch(fetchExercises())
+})
+
+export default connect(null, mapDispatch)(Main)

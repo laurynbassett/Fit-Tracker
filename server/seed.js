@@ -5,7 +5,7 @@ const nextWeek = new Date(Date.now() + 7 * 24 * 60 * (60 * 1000))
 
 const seedWorkouts = [
   {
-    name: "Work the Core",
+    name: 'Work the Core',
     date: yesterday,
     exercises: [
       {
@@ -25,11 +25,11 @@ const seedWorkouts = [
         completed: true,
         description: 'Swim to the edge of the earth',
         duration: 117
-      },
+      }
     ]
   },
   {
-    name: "Leg Day",
+    name: 'Leg Day',
     date: nextWeek,
     exercises: [
       {
@@ -43,29 +43,43 @@ const seedWorkouts = [
         completed: false,
         description: 'Swing for me',
         duration: 19
-      },
+      }
     ]
-  },
+  }
 ]
 
-// Remember that we aren't able to use await outside of an async function.
 async function seed() {
   try {
     console.log('Seeding the database...')
     await db.sync({ force: true })
 
     await Workout.create(seedWorkouts[0], {
-      include: [Exercise]
+      include: [ Exercise ]
     })
 
     await Workout.create(seedWorkouts[1], {
-      include: [Exercise]
+      include: [ Exercise ]
     })
-
-    await db.close()
-    console.log('Database was successfully seeded!')
   } catch (err) {
-    console.error(err)
+    console.error('Error seeding database: ', err)
   }
 }
-seed()
+
+// separate `seed` and `runSeed` fns so we can isolate error handling and exit trapping
+const runSeed = async () => {
+  try {
+    await seed()
+  } catch (err) {
+    console.error('Error running seed fn: ', err)
+    process.exitCode = 1
+  } finally {
+    console.log('Closing db connection')
+    await db.close()
+    console.log('Db connection closed')
+  }
+}
+
+// Execute `seed` fn if module ran directly (`node seed`)
+if (module === require.main) {
+  runSeed()
+}

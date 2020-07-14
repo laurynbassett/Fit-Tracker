@@ -1,5 +1,4 @@
 #analytics {
-  margin-right: 5px;
   flex: 1;
 }
 
@@ -14,5 +13,5 @@
 }
 
 .analytics-name {
-  text-decoration: underline;
+  text-decoration: none;
 }
