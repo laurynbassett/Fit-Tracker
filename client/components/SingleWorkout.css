@@ -16,3 +16,7 @@
   margin: 0px;
   text-decoration: none;
 }
+
+.box-header-buttons > * {
+  margin-left: 0.7rem;
+}

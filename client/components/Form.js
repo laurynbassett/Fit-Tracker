@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, FormControl } from 'react-bootstrap'
 
-const ExerciseForm = props => {
+export const ExerciseForm = props => {
   const { completed, description, duration, items, setCompleted, setDescription, setDuration, setName } = props
   return (
     <Form>
@@ -36,4 +36,14 @@ const ExerciseForm = props => {
   )
 }
 
-export default ExerciseForm
+export const WorkoutForm = props => {
+  const { workoutName, setWorkoutName } = props
+  return (
+    <Form>
+      <Form.Group controlId='formBasicName'>
+        <Form.Label>Workout Name</Form.Label>
+        <Form.Control type='name' value={workoutName} onChange={e => setWorkoutName(e.target.value)} />
+      </Form.Group>
+    </Form>
+  )
+}

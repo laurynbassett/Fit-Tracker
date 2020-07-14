@@ -8,7 +8,7 @@ import './SingleWorkout.css'
 const SingleWorkout = props => {
   const { name, exercises } = props.workout
   const [ show, setShow ] = useState(false)
-
+  const [ isEdit, setIsEdit ] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
@@ -16,9 +16,18 @@ const SingleWorkout = props => {
     <div className='box'>
       <div className='box-header'>
         <h2>{name}</h2>
-        <i className='edit-workout fas fa-edit' onClick={handleShow} />
+        <div className='box-header-buttons'>
+          <i
+            className='edit-workout fas fa-edit'
+            onClick={() => {
+              setIsEdit(true)
+              handleShow()
+            }}
+          />
+          <i className='fas fa-plus' onClick={handleShow} />
+        </div>
       </div>
-      <Modal items={props.exercises} show={show} workout={props.workout} handleClose={handleClose} />
+      <Modal items={props.exercises} isEdit={isEdit} show={show} workout={props.workout} handleClose={handleClose} />
       <div className='box-content'>
         <ul className='exercise-list'>
           {exercises && exercises.length ? (

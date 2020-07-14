@@ -35,6 +35,22 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+// PUT a single workout by id
+router.put('/:id', async (req, res, next) => {
+  try {
+    const workout = await Workout.findByPk(+req.params.id)
+    if (!workout) return res.sendStatus(404)
+    const [ numUpdated, updatedWorkout ] = await Workout.update(req.body, {
+      where: { id: +req.params.id },
+      returning: true
+    })
+    console.log('ROUTE UPDATED WORKOUT: ', updatedWorkout[0].dataValues)
+    res.json(updatedWorkout[0].dataValues)
+  } catch (err) {
+    next(err)
+  }
+})
+
 // DELETE an Workout by id
 router.delete('/:id', async (req, res, next) => {
   try {

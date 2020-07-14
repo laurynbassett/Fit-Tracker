@@ -11,7 +11,7 @@ ul {
 
 body {
   margin: 0px;
-  background-color: #9ee4ae;
+  background-color: #e8ecee;
 }
 
 h1 {
@@ -34,11 +34,11 @@ h3 {
   margin: 0.5rem;
   margin-bottom: 1rem;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-  background-color: #edf5e1;
+  background-color: #fff;
 }
 
 .box-header {
-  background-color: #389683;
+  background-color: #5f7494;
   color: #f2f2f2;
   margin: 0px;
   padding: 1rem;
