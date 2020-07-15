@@ -26,3 +26,8 @@
 .box-header-buttons > * {
   margin-left: 0.7rem;
 }
+
+.fa-circle,
+.fa-check-circle {
+  color: #5f7194f2;
+}

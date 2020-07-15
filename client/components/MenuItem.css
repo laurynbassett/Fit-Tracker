@@ -1,15 +1,18 @@
 .active-bar {
-  background-color: #5f7494;
   position: absolute;
+  height: 4rem;
+  width: 0.3rem;
+  left: 0;
+  background-color: #5f7494;
 }
 
 .active-container {
-  background-color: #dde2ff14;
+  background-color: #82869e21;
 }
 
-/* .active-title {
+.active-title {
   color: #5f7494;
-} */
+}
 
 .menu-container {
   cursor: pointer;
@@ -24,19 +27,6 @@
 
 .menu-container:active {
   background-color: #82869e3f;
-}
-
-.menu-container:active > .active-title {
-  animation: change 0.5s ease-in 0.1s 1;
-}
-
-@keyframes change {
-  from {
-    color: #a4a6b3;
-  }
-  to {
-    color: #fff;
-  }
 }
 
 .menu-title {

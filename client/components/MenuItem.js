@@ -6,8 +6,6 @@ import Icon from './Icon'
 
 const MenuItem = props => {
   const { active, icon, title, ...otherProps } = props
-  // const Icon = icon
-  console.log('ICON', icon)
   return (
     <Row className={`menu-container ${active ? 'active-container' : ''}`} vertical='center' {...otherProps}>
       {active && <div className='active-bar' />}

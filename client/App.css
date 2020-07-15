@@ -20,12 +20,12 @@ h1 {
 
 h2 {
   font-size: 1.5em;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 h3 {
   font-size: 1.17em;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .App {
@@ -52,7 +52,7 @@ h3 {
 }
 
 .box-header {
-  background-color: #5f7494;
+  background-color: #5f7194d1;
   color: #f2f2f2;
   margin: 0px;
   padding: 1rem;

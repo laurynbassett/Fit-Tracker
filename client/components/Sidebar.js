@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState, useRef } from 'react'
 import { Column, Row } from 'simple-flexbox'
 import { GiHamburgerMenu, GiWeightLiftingUp } from 'react-icons/gi'
 
@@ -11,10 +11,25 @@ import './Sidebar.css'
 
 const Sidebar = props => {
   const { selectedItem, setSelectedItem } = props
+
   const [ expanded, setExpanded ] = useState(false)
-  const [ isMobile, setIsMobile ] = useState(window.innerWidth <= 768)
+  const [ width, setWidth ] = useState(window.innerWidth <= 768)
+  const breakpoint = 768
   const [ , updateState ] = useState()
-  const forceUpdate = useCallback(() => updateState({}), [])
+  const input1 = useRef(null)
+  // const forceUpdate = useCallback(() => updateState({}), [])
+
+  useEffect(
+    () => {
+      console.log('WINDOW', window.innerWidth)
+      const handleWindowResize = () => setWidth(window.innerWidth)
+      window.addEventListener('resize', handleWindowResize)
+
+      // Return a function from the effect that removes the event listener
+      return () => window.removeEventListener('resize', handleWindowResize)
+    },
+    [ window.innerWidth ]
+  )
 
   const onItemClicked = item => {
     console.log('ITEM CLICKED', item)
@@ -30,20 +45,38 @@ const Sidebar = props => {
     </div>
   )
 
-  useEffect(
-    () => {
-      setIsMobile(window.innerWidth <= 768)
-      forceUpdate()
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    },
-    [ window.innerWidth ]
-  )
+  const mainContainerStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    ...(expanded && { width: '100%' }),
+    ...(expanded && { minWidth: '100vh' })
+  }
 
+  const containerStyle = {
+    transition: 'left 0.5s, right 0.5s',
+    position: 'absolute',
+    width: 255,
+    height: 'calc(100% - 32px)',
+    zIndex: 901,
+    ...(expanded && { left: 0 }),
+    ...(!expanded && { left: -255 })
+  }
   return (
     <div className='sidebar'>
-      <Row className='main-container'>
-        {isMobile && !expanded && renderBurger()}
-        <Column className='container'>
+      <Row
+        className='main-container'
+        breakpoints={{
+          768: mainContainerStyle
+        }}
+      >
+        {width < breakpoint && !expanded && renderBurger()}
+        <Column
+          className='container'
+          breakpoints={{
+            768: containerStyle
+          }}
+        >
           <Logo />
           <Column className='menu-item-list'>
             <MenuItem
@@ -79,6 +112,7 @@ const Sidebar = props => {
             />
           </Column>
         </Column>
+        {width < breakpoint && expanded && <div className='outside-layer' onClick={toggleMenu} />}
       </Row>
     </div>
   )

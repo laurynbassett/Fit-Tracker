@@ -20,6 +20,7 @@ const SingleWorkout = props => {
       <div className='box-header'>
         <h2>{name}</h2>
         <div className='box-header-buttons'>
+          <i className='fas fa-plus' onClick={handleShow} />
           <i
             className='edit-workout fas fa-edit'
             onClick={() => {
@@ -27,7 +28,6 @@ const SingleWorkout = props => {
               handleShow()
             }}
           />
-          <i className='fas fa-plus' onClick={handleShow} />
           <i className='fas fa-trash' onClick={handleDelete} />
         </div>
       </div>
