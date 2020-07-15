@@ -1,8 +1,9 @@
 import React from 'react'
-import { Form, FormControl } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 
 export const ExerciseForm = props => {
-  const { completed, description, duration, items, setCompleted, setDescription, setDuration, setName } = props
+  const { completed, description, duration, items, setCompleted, setDescription, setDuration, setExerciseName } = props
+
   return (
     <Form>
       <Form.Group controlId='formBasicDuration'>
@@ -15,7 +16,7 @@ export const ExerciseForm = props => {
       </Form.Group>
       <Form.Group controlId='exercise'>
         <Form.Label>Select Exercise</Form.Label>
-        <Form.Control as='select' onChange={e => setName(e.target.value)}>
+        <Form.Control as='select' onChange={e => setExerciseName(e.target.value)}>
           {items.map(item => (
             <option key={item.id} value={item.name}>
               {item.name}
@@ -28,7 +29,7 @@ export const ExerciseForm = props => {
           name='completed'
           label='Completed Exercise'
           value={completed}
-          onChange={e => setCompleted(!completed)}
+          onChange={() => setCompleted(!completed)}
           id='completed'
         />
       </Form.Group>

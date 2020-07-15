@@ -28,6 +28,20 @@ h3 {
   font-weight: 300;
 }
 
+.App {
+  height: 100%;
+  min-height: 100vh;
+}
+
+.content {
+  margin-top: 54px;
+}
+
+.mainBlock {
+  background-color: #f7f8fc;
+  padding: 30px;
+}
+
 .box {
   border-radius: 5px;
   overflow: hidden;
@@ -48,7 +62,7 @@ h3 {
 }
 
 .box-header h2 {
-  margin: 0;
+  margin: 0px;
 }
 
 .box-content {

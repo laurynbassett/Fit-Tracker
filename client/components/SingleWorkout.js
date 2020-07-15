@@ -1,21 +1,19 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import SingleExercise from './SingleExercise'
-import Modal from './Modal'
 import './SingleWorkout.css'
+import Modal from './Modal'
+import SingleExercise from './SingleExercise'
 import { removeWorkout } from '../store'
 
 const SingleWorkout = props => {
   const { name, exercises } = props.workout
   const [ show, setShow ] = useState(false)
   const [ isEdit, setIsEdit ] = useState(false)
+
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-  const handleDelete = () => {
-    console.log('DELETE', props.workout.id)
-    props.deleteWorkout(props.workout.id)
-  }
+  const handleDelete = () => props.deleteWorkout(props.workout.id)
 
   return (
     <div className='box'>

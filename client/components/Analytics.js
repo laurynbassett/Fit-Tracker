@@ -33,14 +33,14 @@ const Analytics = props => {
   )
 }
 
-function getTotalMins(exercises) {
+function getTotalMins(exercises = []) {
   return exercises.reduce((sum, currExercise) => {
     if (currExercise.completed) sum += currExercise.duration
     return sum
   }, 0)
 }
 
-function getFaveExercise(exercises) {
+function getFaveExercise(exercises = []) {
   let countObj = {},
     mostFreqCount = 0,
     mostFreq = ''
@@ -56,7 +56,7 @@ function getFaveExercise(exercises) {
   return mostFreq
 }
 
-function getPercentCompleted(exercises) {
+function getPercentCompleted(exercises = []) {
   if (!exercises.length) return 0 // if no exercises, don't calculate
   const completedExercises = exercises.filter(exercise => exercise.completed)
   return Math.round(completedExercises.length / exercises.length * 100)

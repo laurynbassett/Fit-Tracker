@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { Button, Form, Modal as ModalUI } from 'react-bootstrap'
-// import { Body, Footer, Header, Title } from 'react-bootstrap/Modal'
+import { Button, Modal as ModalUI } from 'react-bootstrap'
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './Modal.css'
-import { ExerciseForm, WorkoutForm } from './Form'
 import { postExercise, postWorkout, putWorkout } from '../store/workouts'
+import { ExerciseForm, WorkoutForm } from './Form'
 
 const Modal = props => {
   const { addExercise, addWorkout, handleClose, isEdit, isAdd, items, show, updateWorkout, workout } = props
-  const { Header, Title, Body, Footer } = ModalUI
 
   // for workout form
   const [ workoutName, setWorkoutName ] = useState('')
 
   // for exercise form
-  const [ name, setName ] = useState('')
   const [ completed, setCompleted ] = useState(false)
   const [ duration, setDuration ] = useState(0)
   const [ description, setDescription ] = useState('')
+  const [ exerciseName, setExerciseName ] = useState('')
 
   const handleAddExercise = () => {
-    console.log(name, completed, description, duration)
     const exercise = { name, completed, description, duration }
     addExercise(exercise, { id: workout.id, name: workout.name })
     setName('')
@@ -33,7 +30,6 @@ const Modal = props => {
   }
 
   const handleAddWorkout = () => {
-    console.log(workoutName)
     addWorkout(workoutName)
     setWorkoutName('')
     handleClose()
@@ -41,7 +37,6 @@ const Modal = props => {
 
   const handleEditWorkout = () => {
     workout.name = workoutName
-    console.log(workoutName, workout)
     updateWorkout(workout)
     setWorkoutName('')
     handleClose()
@@ -53,10 +48,10 @@ const Modal = props => {
 
   return (
     <ModalUI show={show} onHide={handleClose} backdrop={true}>
-      <Header closeButton>
-        <Title>Add an Exercise</Title>
-      </Header>
-      <Body>
+      <ModalUI.Header closeButton>
+        <ModalUI.Title>Add an Exercise</ModalUI.Title>
+      </ModalUI.Header>
+      <ModalUI.Body>
         {isEdit || isAdd ? (
           <WorkoutForm workoutName={workoutName} setWorkoutName={setWorkoutName} />
         ) : (
@@ -68,22 +63,23 @@ const Modal = props => {
             setCompleted={setCompleted}
             setDescription={setDescription}
             setDuration={setDuration}
-            setName={setName}
+            setExerciseName={setExerciseName}
           />
         )}
-      </Body>
-      <Footer>
+      </ModalUI.Body>
+      <ModalUI.Footer>
         <Button variant='secondary' onClick={handleClose}>
           Close
         </Button>
         <Button
           variant='primary'
           type='submit'
+          // change click behaviour based on props passed
           onClick={isEdit ? handleEditWorkout : isAdd ? handleAddWorkout : handleAddExercise}
         >
           Save Changes
         </Button>
-      </Footer>
+      </ModalUI.Footer>
     </ModalUI>
   )
 }

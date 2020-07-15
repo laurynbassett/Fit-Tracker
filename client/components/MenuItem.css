@@ -1,0 +1,48 @@
+.active-bar {
+  background-color: #5f7494;
+  position: absolute;
+}
+
+.active-container {
+  background-color: #dde2ff14;
+}
+
+/* .active-title {
+  color: #5f7494;
+} */
+
+.menu-container {
+  cursor: pointer;
+  height: 4rem;
+  width: 100%;
+  padding-left: 0.7rem;
+}
+
+.menu-container:hover {
+  background-color: #969aae6b;
+}
+
+.menu-container:active {
+  background-color: #82869e3f;
+}
+
+.menu-container:active > .active-title {
+  animation: change 0.5s ease-in 0.1s 1;
+}
+
+@keyframes change {
+  from {
+    color: #a4a6b3;
+  }
+  to {
+    color: #fff;
+  }
+}
+
+.menu-title {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.1rem;
+  color: #a4a6b3;
+  margin-left: 1rem;
+}
