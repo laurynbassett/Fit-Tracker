@@ -64,7 +64,7 @@ function getPercentCompleted(exercises) {
 
 const mapState = state => {
   // flatten workouts into array of just exercises
-  const exercises = state.workouts.reduce((a, c) => (a = a.concat(c.exercises)), [])
+  const exercises = state.workouts.reduce((a, c) => (a = c.exercises && a.concat(c.exercises)), [])
 
   return {
     totalMins: getTotalMins(exercises),

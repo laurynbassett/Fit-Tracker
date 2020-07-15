@@ -5,14 +5,18 @@ const defaultWorkouts = []
 
 // ---------- ACTION TYPES ---------- //
 const SET_WORKOUTS = 'SET_WORKOUTS'
+const ADD_WORKOUT = 'ADD_WORKOUT'
 const UPDATE_WORKOUT = 'UPDATE_WORKOUT'
+const DELETE_WORKOUT = 'DELETE_WORKOUT'
 const ADD_EXERCISE = 'ADD_EXERCISE'
 const UPDATE_EXERCISE = 'UPDATE_EXERCISE'
 const DELETE_EXERCISE = 'DELETE_EXERCISE'
 
 // ---------- ACTION CREATORS ---------- //
 export const setWorkouts = workouts => ({ type: SET_WORKOUTS, workouts })
+export const addWorkout = workout => ({ type: ADD_WORKOUT, workout })
 export const updateWorkout = workout => ({ type: UPDATE_WORKOUT, workout })
+export const deleteWorkout = workoutId => ({ type: DELETE_WORKOUT, workoutId })
 export const addExercise = (exercise, workoutId) => ({ type: ADD_EXERCISE, exercise, workoutId })
 export const updateExercise = (exerciseId, completed) => ({ type: UPDATE_EXERCISE, exerciseId, completed })
 export const deleteExercise = exerciseId => ({ type: DELETE_EXERCISE, exerciseId })
@@ -37,6 +41,30 @@ export const putWorkout = workout => async dispatch => {
     dispatch(updateWorkout(workout))
   } catch (err) {
     console.error('Error updating workout: ', err)
+  }
+}
+
+// Add Workout
+export const postWorkout = workoutName => async dispatch => {
+  try {
+    const workout = { name: workoutName, date: new Date() }
+    const { data } = await axios.post('/workouts', workout)
+    console.log('UPDATED WORKOUT', data)
+
+    dispatch(addWorkout(data))
+  } catch (err) {
+    console.error('Error adding workout: ', err)
+  }
+}
+
+// Remove Workout
+export const removeWorkout = workoutId => async dispatch => {
+  try {
+    console.log('REMOVE WORKOUT PROP', workoutId)
+    await axios.delete(`/workouts/${workoutId}`)
+    dispatch(deleteWorkout(workoutId))
+  } catch (err) {
+    console.error('Error deleting workout: ', err)
   }
 }
 
@@ -75,6 +103,9 @@ export default function(state = defaultWorkouts, action) {
   switch (action.type) {
     case SET_WORKOUTS:
       return action.workouts
+    case ADD_WORKOUT:
+      const addedWorkout = [ ...state, action.workout ]
+      return addedWorkout
     case UPDATE_WORKOUT:
       const updatedWorkout = state.map(workout => {
         if (workout.id === action.workout.id) {
@@ -83,8 +114,11 @@ export default function(state = defaultWorkouts, action) {
         return workout
       })
       return updatedWorkout
+    case DELETE_WORKOUT:
+      const deletedWorkout = state.filter(workout => workout.id !== action.workoutId)
+      return deletedWorkout
     case ADD_EXERCISE:
-      const addedWorkouts = state.map(workout => {
+      const addedExercise = state.map(workout => {
         if (workout.id === action.workoutId) {
           return {
             ...workout,
@@ -93,7 +127,7 @@ export default function(state = defaultWorkouts, action) {
         }
         return workout
       })
-      return addedWorkouts
+      return addedExercise
     case UPDATE_EXERCISE:
       const updatedWorkouts = state.map(workout => {
         if (workout.exercises.find(exercise => exercise.id === action.exerciseId)) {

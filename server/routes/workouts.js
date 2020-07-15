@@ -27,9 +27,11 @@ router.get('/:id', async (req, res, next) => {
 // POST a new workout
 router.post('/', async (req, res, next) => {
   try {
+    console.log('REQ PARAMS', req.body)
     const { name, date } = req.body
     res.status(201)
-    res.json(await Workout.create({ name, date }))
+    const workout = await Workout.create({ name, date })
+    res.json(workout)
   } catch (err) {
     next(err)
   }

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import SingleExercise from './SingleExercise'
 import Modal from './Modal'
 import './SingleWorkout.css'
+import { removeWorkout } from '../store'
 
 const SingleWorkout = props => {
   const { name, exercises } = props.workout
@@ -11,6 +12,10 @@ const SingleWorkout = props => {
   const [ isEdit, setIsEdit ] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+  const handleDelete = () => {
+    console.log('DELETE', props.workout.id)
+    props.deleteWorkout(props.workout.id)
+  }
 
   return (
     <div className='box'>
@@ -25,6 +30,7 @@ const SingleWorkout = props => {
             }}
           />
           <i className='fas fa-plus' onClick={handleShow} />
+          <i className='fas fa-trash' onClick={handleDelete} />
         </div>
       </div>
       <Modal items={props.exercises} isEdit={isEdit} show={show} workout={props.workout} handleClose={handleClose} />
@@ -49,4 +55,8 @@ const mapState = state => ({
   exercises: state.exercises.exerciseList
 })
 
-export default connect(mapState)(SingleWorkout)
+const mapDispatch = dispatch => ({
+  deleteWorkout: id => dispatch(removeWorkout(id))
+})
+
+export default connect(mapState, mapDispatch)(SingleWorkout)

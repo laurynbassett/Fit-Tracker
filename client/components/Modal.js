@@ -6,10 +6,10 @@ import { Button, Form, Modal as ModalUI } from 'react-bootstrap'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './Modal.css'
 import { ExerciseForm, WorkoutForm } from './Form'
-import { postExercise, putWorkout } from '../store/workouts'
+import { postExercise, postWorkout, putWorkout } from '../store/workouts'
 
 const Modal = props => {
-  const { addExercise, handleClose, isEdit, items, show, updateWorkout, workout } = props
+  const { addExercise, addWorkout, handleClose, isEdit, isAdd, items, show, updateWorkout, workout } = props
   const { Header, Title, Body, Footer } = ModalUI
 
   // for workout form
@@ -25,6 +25,17 @@ const Modal = props => {
     console.log(name, completed, description, duration)
     const exercise = { name, completed, description, duration }
     addExercise(exercise, { id: workout.id, name: workout.name })
+    setName('')
+    setCompleted(false)
+    setDuration(0)
+    setDescription('')
+    handleClose()
+  }
+
+  const handleAddWorkout = () => {
+    console.log(workoutName)
+    addWorkout(workoutName)
+    setWorkoutName('')
     handleClose()
   }
 
@@ -32,11 +43,12 @@ const Modal = props => {
     workout.name = workoutName
     console.log(workoutName, workout)
     updateWorkout(workout)
+    setWorkoutName('')
     handleClose()
   }
 
   useEffect(() => {
-    setWorkoutName(workout.name)
+    // workout && setWorkoutName(workout.name)
   }, [])
 
   return (
@@ -45,7 +57,7 @@ const Modal = props => {
         <Title>Add an Exercise</Title>
       </Header>
       <Body>
-        {isEdit ? (
+        {isEdit || isAdd ? (
           <WorkoutForm workoutName={workoutName} setWorkoutName={setWorkoutName} />
         ) : (
           <ExerciseForm
@@ -64,7 +76,11 @@ const Modal = props => {
         <Button variant='secondary' onClick={handleClose}>
           Close
         </Button>
-        <Button variant='primary' type='submit' onClick={isEdit ? handleEditWorkout : handleAddExercise}>
+        <Button
+          variant='primary'
+          type='submit'
+          onClick={isEdit ? handleEditWorkout : isAdd ? handleAddWorkout : handleAddExercise}
+        >
           Save Changes
         </Button>
       </Footer>
@@ -74,6 +90,7 @@ const Modal = props => {
 
 const mapDispatch = dispatch => ({
   addExercise: (exercise, workout) => dispatch(postExercise(exercise, workout)),
+  addWorkout: workout => dispatch(postWorkout(workout)),
   updateWorkout: workout => dispatch(putWorkout(workout))
 })
 
