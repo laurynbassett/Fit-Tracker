@@ -5,12 +5,12 @@
   justify-content: center;
 }
 
-svg {
+#workouts svg {
   align-self: center;
   margin-top: 1.5rem;
   color: #849fc9;
 }
 
-svg:hover {
+#workouts svg:hover {
   cursor: pointer;
 }

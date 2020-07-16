@@ -26,7 +26,7 @@ export const deleteExercise = exerciseId => ({ type: DELETE_EXERCISE, exerciseId
 // Fetch Workouts
 export const fetchWorkouts = () => async dispatch => {
   try {
-    const { data } = await axios.get('/workouts')
+    const { data } = await axios.get('/api/workouts')
     dispatch(setWorkouts(data || defaultWorkouts))
   } catch (err) {
     console.error('Error getting workouts: ', err)
@@ -36,7 +36,7 @@ export const fetchWorkouts = () => async dispatch => {
 // Edit Workout
 export const putWorkout = workout => async dispatch => {
   try {
-    const { data } = await axios.put(`/workouts/${workout.id}`, workout)
+    const { data } = await axios.put(`/api/workouts/${workout.id}`, workout)
     console.log('UPDATED WORKOUT', data)
     dispatch(updateWorkout(workout))
   } catch (err) {
@@ -48,7 +48,7 @@ export const putWorkout = workout => async dispatch => {
 export const postWorkout = workoutName => async dispatch => {
   try {
     const workout = { name: workoutName, date: new Date() }
-    const { data } = await axios.post('/workouts', workout)
+    const { data } = await axios.post('/api/workouts', workout)
     console.log('UPDATED WORKOUT', data)
 
     dispatch(addWorkout(data))
@@ -61,7 +61,7 @@ export const postWorkout = workoutName => async dispatch => {
 export const removeWorkout = workoutId => async dispatch => {
   try {
     console.log('REMOVE WORKOUT PROP', workoutId)
-    await axios.delete(`/workouts/${workoutId}`)
+    await axios.delete(`/api/workouts/${workoutId}`)
     dispatch(deleteWorkout(workoutId))
   } catch (err) {
     console.error('Error deleting workout: ', err)
@@ -71,7 +71,7 @@ export const removeWorkout = workoutId => async dispatch => {
 // Edit Exercise
 export const putExercise = (exerciseId, completed) => async dispatch => {
   try {
-    const { data } = await axios.put(`/exercises/${exerciseId}`, { completed })
+    const { data } = await axios.put(`/api/exercises/${exerciseId}`, { completed })
     dispatch(updateExercise(exerciseId, completed))
   } catch (err) {
     console.error('Error updating workout exercise: ', err)
@@ -81,7 +81,7 @@ export const putExercise = (exerciseId, completed) => async dispatch => {
 // Add Exercise
 export const postExercise = (exercise, workout) => async dispatch => {
   try {
-    const { data } = await axios.post('/exercises', { ...exercise, workout })
+    const { data } = await axios.post('/api/exercises', { ...exercise, workout })
     dispatch(addExercise(data, workout.id))
   } catch (err) {
     console.error('Error updating workout exercise: ', err)
@@ -91,7 +91,7 @@ export const postExercise = (exercise, workout) => async dispatch => {
 // Remove Exercise
 export const removeExercise = exerciseId => async dispatch => {
   try {
-    await axios.delete(`/exercises/${exerciseId}`)
+    await axios.delete(`/api/exercises/${exerciseId}`)
     dispatch(deleteExercise(exerciseId))
   } catch (err) {
     console.error('Error deleting workout exercise: ', err)

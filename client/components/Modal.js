@@ -43,13 +43,13 @@ const Modal = props => {
   }
 
   useEffect(() => {
-    // workout && setWorkoutName(workout.name)
+    workout && setWorkoutName(workout.name)
   }, [])
 
   return (
     <ModalUI show={show} onHide={handleClose} backdrop={true}>
       <ModalUI.Header closeButton>
-        <ModalUI.Title>Add an Exercise</ModalUI.Title>
+        <ModalUI.Title>{isEdit ? 'Edit Workout' : isAdd ? 'Add Workout' : 'Add Exercise'}</ModalUI.Title>
       </ModalUI.Header>
       <ModalUI.Body>
         {isEdit || isAdd ? (

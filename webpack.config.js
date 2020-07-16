@@ -9,7 +9,7 @@ module.exports = {
     path: path.join(__dirname, 'server/public'),
     filename: 'bundle.js'
   },
-  devtool: 'source-maps',
+  devtool: 'source-map',
   module: {
     rules: [
       {

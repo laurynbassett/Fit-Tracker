@@ -19,7 +19,7 @@ const SingleExercise = props => {
           />
           <i className='fas fa-trash' onClick={() => deleteExercise(id)} />
         </div>
-        <h3>{name}</h3>
+        <h3 className='exercise-name'>{name}</h3>
         <span>{duration} min</span>
       </div>
       <div className='exercise-description'>{description}</div>

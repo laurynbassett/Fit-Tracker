@@ -15,3 +15,8 @@
 i:hover {
   cursor: pointer;
 }
+
+.exercise-name {
+  font-size: 1.17em;
+  font-weight: 300;
+}

@@ -1,15 +1,20 @@
-.title {
-  font-style: 'normal';
-  font-weight: 'bold';
-  font-size: 1.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.2rem;
-  color: #a4a6b3;
-  opacity: 0.7;
+.logo {
+  margin-right: 0.8rem;
+  height: 2.5rem;
+  width: auto;
+  cursor: pointer;
 }
 
-.logo {
-  height: 2.5rem;
-  margin-right: 0.8rem;
-  width: auto;
+a:hover {
+  text-decoration: none;
+}
+
+.logo-title {
+  margin: 0;
+  line-height: 2.5rem;
+  letter-spacing: 0.2rem;
+  color: #5a5b62;
+  opacity: 0.7;
+  font-size: 1.5em;
+  font-weight: 200;
 }

@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { fetchWorkouts, fetchExercises } from '../store'
-import Analytics from './Analytics'
-import ListWorkouts from './ListWorkouts'
+import { Analytics, ListWorkouts } from '../components'
 import './Main.css'
 
 class Main extends Component {

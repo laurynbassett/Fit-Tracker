@@ -1,8 +1,78 @@
 #header {
-  color: #fff;
-  background-color: #5f7494;
   display: flex;
   justify-content: center;
   padding-top: 1.2rem;
   padding-bottom: 0.5rem;
+  background-color: #fff;
+  color: #5f7494;
+}
+
+.header-avatar {
+  margin-right: 0.5rem;
+  height: 2.2rem;
+  width: 2.2rem;
+  border-radius: 3.125rem;
+  border: 1px solid #dfe0eb;
+  cursor: pointer;
+}
+
+.header-container {
+  margin: 2rem;
+  height: 2.5rem;
+}
+
+.header-name {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14;
+  line-height: 20px;
+  text-align: right;
+  letter-spacing: 0.2;
+  cursor: pointer;
+}
+
+.header-separator {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  height: 2rem;
+  width: 0.125rem;
+  border-left: 1px solid #dfe0eb;
+}
+
+.header-title {
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1.875rem;
+  letter-spacing: 0.2rem;
+  color: #5f7194d1;
+}
+
+.header-icon {
+  margin-left: 0.75rem;
+  height: 1.5rem;
+  width: auto;
+  cursor: pointer;
+  color: #849fc9;
+}
+
+@media (max-width: 768px) {
+  .header-separator {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+  .header-title {
+    margin-left: 2.25rem;
+  }
+  .header-icon {
+    margin-left: 0.5rem;
+  }
+  .header-name {
+    display: none;
+  }
+}
+
+@media (max-width: 468px) {
+  .header-title {
+    font-size: 1.5rem;
+  }
 }
