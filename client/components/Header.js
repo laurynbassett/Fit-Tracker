@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Row } from 'simple-flexbox'
 
 import './Header.css'
@@ -19,8 +20,10 @@ const Header = props => {
         </div>
         <div className='header-separator' />
         <Row vertical='center'>
-          <span className='header-name'>{name}</span>
-          <img src={icon} alt='avatar' className='header-avatar' />
+          <Link to='/profile'>
+            <span className='header-name'>{name}</span>
+            <img src={icon} alt='avatar' className='header-avatar' />
+          </Link>
         </Row>
       </Row>
     </Row>

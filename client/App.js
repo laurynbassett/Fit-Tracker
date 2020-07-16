@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Column, Row } from 'simple-flexbox'
 
 import './App.css'
-import store from './store'
 import { Header, Sidebar } from './components'
 import Routes from './routes'
 

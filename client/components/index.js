@@ -1,7 +1,12 @@
-// Components which need to be used outside the component folder can be re-exported here
-
+// Re-export components to use outside of folder
 export { Login, Signup } from './auth-form'
 export { default as Analytics } from './Analytics'
+export { default as Form } from './Form'
 export { default as Header } from './Header'
+export { default as Icon } from './Icon'
 export { default as ListWorkouts } from './ListWorkouts'
+export { default as Logo } from './Logo'
+export { default as Modal } from './Modal'
 export { default as Sidebar } from './Sidebar'
+export { default as SingleExercise } from './SingleExercise'
+export { default as SingleWorkout } from './SingleWorkout'

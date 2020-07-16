@@ -5,7 +5,7 @@ import { withRouter, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { Login, Signup } from './components'
-import { Activity, Main, Schedule, Settings, Workouts } from './pages'
+import { Activity, Main, Profile, Schedule, Settings, Workouts } from './pages'
 import { fetchMe } from './store'
 
 /**
@@ -31,6 +31,7 @@ class Routes extends Component {
         {/* Routes placed here are only available after logging in */}
         <Route path='/activity' component={Activity} />
         <Route path='/dashboard' component={Main} />
+        <Route path='/profile' component={Profile} />
         <Route path='/schedule' component={Schedule} />
         <Route path='/settings' component={Settings} />
         <Route path='/workouts' component={Workouts} />

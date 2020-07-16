@@ -1,1 +1,14 @@
+#workouts .box {
+  flex: 1 0 50%;
+  max-width: 48%;
+}
 
+#workouts svg {
+  align-self: center;
+  margin-top: 1.5rem;
+  color: #849fc9;
+}
+
+#workouts svg:hover {
+  cursor: pointer;
+}

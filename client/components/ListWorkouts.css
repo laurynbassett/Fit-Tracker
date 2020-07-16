@@ -1,16 +1,16 @@
-#workouts {
+#list-workouts {
   display: flex;
   flex-direction: column;
   flex: 2;
   justify-content: center;
 }
 
-#workouts svg {
+#list-workouts svg {
   align-self: center;
   margin-top: 1.5rem;
   color: #849fc9;
 }
 
-#workouts svg:hover {
+#list-workouts svg:hover {
   cursor: pointer;
 }
