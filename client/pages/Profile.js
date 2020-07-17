@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import './Profile.css'
 
 export const Profile = () => {
-  return <div>Profile</div>
+  return <div id='profile'>Profile</div>
 }
 
 const mapState = state => ({})

@@ -47,3 +47,32 @@ h3 {
 .main-panel.mobile {
   margin-left: 0;
 }
+
+.dropdown ul {
+  position: relative;
+  top: 0.2rem;
+  left: -1.8rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: 0.1rem #e8ecee91 solid;
+}
+
+.dropdown li {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  cursor: pointer;
+}
+
+.dropdown a {
+  color: #5f7494;
+}
+
+.dropdown li:hover {
+  background-color: #82869e12;
+}
+
+.dropdown li:active {
+  background-color: #82869e3d;
+}

@@ -12,13 +12,13 @@ export const Workouts = ({ workouts }) => {
   const handleShow = () => setShow(true)
 
   return (
-    <div id='workouts'>
+    <Column id='workouts' alignSelf='center'>
       <Row className='workouts-list' wrap={true}>
         {workouts.map(workout => <SingleWorkout key={workout.id} workout={workout} />)}
       </Row>
       <PlusSquare size={50} onClick={handleShow} />
       <Modal isAdd={true} show={show} handleClose={handleClose} handleShow={handleShow} />
-    </div>
+    </Column>
   )
 }
 

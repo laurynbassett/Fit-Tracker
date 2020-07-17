@@ -6,7 +6,6 @@ import { FiActivity } from 'react-icons/fi'
 import { AiOutlineDashboard, AiOutlineSchedule, AiOutlineSetting } from 'react-icons/ai'
 
 import './Sidebar.css'
-import history from '../history'
 import Logo from './Logo'
 import MenuItem from './MenuItem'
 
@@ -17,7 +16,6 @@ const Sidebar = props => {
   const onItemClicked = item => {
     setExpanded(false)
     setSelectedItem(item)
-    history.push(`/${item.toLowerCase()}`)
   }
 
   const toggleMenu = () => setExpanded(!expanded)
