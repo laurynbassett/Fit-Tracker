@@ -26,25 +26,29 @@ export const auth = (email, password, method) => async dispatch => {
   let res
   try {
     res = await axios.post(`/auth/${method}`, { email, password })
-  } catch (authError) {
-    return dispatch(getUser({ error: authError }))
+  } catch (authErr) {
+    console.error('Error getting user: ', authErr)
+    return dispatch(getUser({ error: authErr }))
   }
 
   try {
     dispatch(getUser(res.data))
-    history.push('/home')
-  } catch (dispatchOrHistoryErr) {
-    console.error(dispatchOrHistoryErr)
+    history.push('/dashboard')
+  } catch (err) {
+    console.error('Error logging in: ', err)
   }
 }
 
 export const logout = () => async dispatch => {
   try {
+    console.log('IN STORE LOGOUT')
     await axios.delete('/auth/logout')
+    console.log('IN LOGOUT PAST AXIOS')
+
     dispatch(removeUser())
     history.push('/login')
   } catch (err) {
-    console.error(err)
+    console.error('Error logging out: ', err)
   }
 }
 

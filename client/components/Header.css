@@ -19,8 +19,7 @@
 
 .header-avatar:hover {
   border-radius: 3.125rem;
-  /* box-shadow: 0 0 0.5rem 0.1rem #dfe0eb; */
-  transform: translate(0, 0.5rem);
+  transform: translate(0, 0.1rem);
 }
 
 .header-container {
@@ -68,10 +67,13 @@
 
 .header-icon:active {
   color: #5f7194d1;
-  transform: translate(0, 0.05rem);
+  transform: translate(0, 0.01rem);
 }
 
 @media (max-width: 768px) {
+  .header-container {
+    display: none;
+  }
   .header-separator {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
@@ -88,14 +90,7 @@
 }
 
 @media (max-width: 468px) {
-  .header-title {
+  /* .header-title {
     font-size: 1.5rem;
-  }
-}
-
-.header-outside-layer {
-  position: fixed;
-  width: 100vw;
-  min-width: 100%;
-  height: 100%;
+  } */
 }

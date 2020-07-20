@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Column, Row } from 'simple-flexbox'
+import { connect } from 'react-redux'
 
 import './App.css'
 import { Header, Sidebar } from './components'
 import Routes from './routes'
 
-const App = () => {
+const App = props => {
   const [ selectedItem, setSelectedItem ] = useState('Dashboard')
   const [ width, setWidth ] = useState(window.innerWidth <= 768)
   const breakpoint = 768
@@ -22,15 +23,22 @@ const App = () => {
     [ window.innerWidth ]
   )
 
+  console.log('isLoggedIn', props.isLoggedIn)
   return (
     <Row className='App'>
-      <Sidebar selectedItem={selectedItem} setSelectedItem={setSelectedItem} width={width} breakpoint={breakpoint} />
-      <Column flexGrow={1} className={`main-panel ${width < breakpoint && 'mobile'}`}>
-        <Header title={selectedItem} />
+      {props.isLoggedIn && (
+        <Sidebar selectedItem={selectedItem} setSelectedItem={setSelectedItem} width={width} breakpoint={breakpoint} />
+      )}
+      <Column flexGrow={1} className={`main-panel ${width < breakpoint && 'mobile'} ${!props.isLoggedIn && 'auth'}`}>
+        {props.isLoggedIn && <Header title={selectedItem} />}
         <Routes className='content' />
       </Column>
     </Row>
   )
 }
 
-export default App
+const mapState = state => ({
+  isLoggedIn: !!state.user.id
+})
+
+export default connect(mapState)(App)

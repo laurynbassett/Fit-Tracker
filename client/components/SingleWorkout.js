@@ -11,7 +11,10 @@ const SingleWorkout = props => {
   const [ show, setShow ] = useState(false)
   const [ isEdit, setIsEdit ] = useState(false)
 
-  const handleClose = () => setShow(false)
+  const handleClose = () => {
+    setShow(false)
+    setIsEdit(false)
+  }
   const handleShow = () => setShow(true)
   const handleDelete = () => props.deleteWorkout(props.workout.id)
 

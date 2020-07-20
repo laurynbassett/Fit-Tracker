@@ -1,19 +1,17 @@
-import React, { useState, useRef } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row } from 'simple-flexbox'
 import { AiOutlineBell, AiOutlineSearch } from 'react-icons/ai'
+import { Dropdown as DropdownAD } from 'antd'
 
 import './Header.css'
 import Dropdown from './Dropdown'
+import { logout } from '../store'
 
 const Header = props => {
-  const { title, icon = 'assets/user.png', name = '' } = props
-
-  const [ showDropdown, setShowDropdown ] = useState(false)
-  const target = useRef()
-
-  const toggleDropdown = () => setShowDropdown(!showDropdown)
-
+  const { title, icon = 'assets/user.png', name = '', isLoggedIn, logout, user } = props
+  console.log('USER', props)
   return (
     <Row className='header-container' vertical='center' horizontal='space-between'>
       <span className='header-title'>{title}</span>
@@ -29,13 +27,22 @@ const Header = props => {
           <Link to='/profile'>
             <span className='header-name'>{name}</span>
           </Link>
-          <img src={icon} alt='avatar' className='header-avatar' ref={target} onClick={toggleDropdown} />
-          <Dropdown target={target} show={showDropdown} toggleDropdown={toggleDropdown} />
+          <DropdownAD overlay={() => Dropdown(props)} trigger={[ 'click' ]} overlayStyle={{ margin: '1rem' }}>
+            <img src={icon} alt='avatar' className='header-avatar' onClick={e => e.preventDefault()} />
+          </DropdownAD>
         </Row>
       </Row>
-      {showDropdown && <div className='header-outside-layer' onClick={toggleDropdown} />}
     </Row>
   )
 }
 
-export default Header
+const mapState = state => ({
+  isLoggedIn: !!state.user.id,
+  user: state.user
+})
+
+const mapDispatch = dispatch => ({
+  logout: () => dispatch(logout())
+})
+
+export default connect(mapState, mapDispatch)(Header)

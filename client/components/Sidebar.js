@@ -4,6 +4,7 @@ import { Column, Row } from 'simple-flexbox'
 import { GiHamburgerMenu, GiWeightLiftingUp } from 'react-icons/gi'
 import { FiActivity } from 'react-icons/fi'
 import { AiOutlineDashboard, AiOutlineSchedule, AiOutlineSetting } from 'react-icons/ai'
+import { FaAppleAlt } from 'react-icons/fa'
 
 import './Sidebar.css'
 import Logo from './Logo'
@@ -22,7 +23,7 @@ const Sidebar = props => {
 
   const renderBurger = () => (
     <div onClick={toggleMenu} className='burger-icon'>
-      <GiHamburgerMenu />
+      <GiHamburgerMenu color='#5f7494' />
     </div>
   )
 
@@ -64,6 +65,14 @@ const Sidebar = props => {
                   icon={GiWeightLiftingUp}
                   onClick={() => onItemClicked('Workouts')}
                   active={selectedItem === 'Workouts'}
+                />
+              </Link>
+              <Link to='/nutrition'>
+                <MenuItem
+                  title='Nutrition'
+                  icon={FaAppleAlt}
+                  onClick={() => onItemClicked('Nutrition')}
+                  active={selectedItem === 'Nutrition'}
                 />
               </Link>
             </div>

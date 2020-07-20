@@ -33,10 +33,15 @@ router.post('/signup', async (req, res, next) => {
   }
 })
 
-router.post('/logout', (req, res) => {
+router.delete('/logout', (req, res) => {
+  console.log('IN LOGOUT', req.session)
   req.logout()
+  console.log('LOGGED OUT')
+
   req.session.destroy()
-  res.redirect('/')
+  console.log('DESTROYED')
+
+  res.sendStatus(204).end()
 })
 
 router.get('/me', (req, res) => {

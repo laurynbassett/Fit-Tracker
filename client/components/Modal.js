@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { Button, Modal as ModalUI } from 'react-bootstrap'
+import { Modal as ModalAD, Button } from 'antd'
+import withStyles from 'react-jss'
 
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './Modal.css'
 import { postExercise, postWorkout, putWorkout } from '../store/workouts'
 import { ExerciseForm, WorkoutForm } from './Form'
 
 const Modal = props => {
-  const { addExercise, addWorkout, handleClose, isEdit, isAdd, items, show, updateWorkout, workout } = props
+  const { addExercise, addWorkout, classes, handleClose, isEdit, isAdd, items, show, updateWorkout, workout } = props
 
   // for workout form
   const [ workoutName, setWorkoutName ] = useState('')
@@ -47,41 +47,82 @@ const Modal = props => {
   }, [])
 
   return (
-    <ModalUI show={show} onHide={handleClose} backdrop={true}>
-      <ModalUI.Header closeButton>
-        <ModalUI.Title>{isEdit ? 'Edit Workout' : isAdd ? 'Add Workout' : 'Add Exercise'}</ModalUI.Title>
-      </ModalUI.Header>
-      <ModalUI.Body>
-        {isEdit || isAdd ? (
-          <WorkoutForm workoutName={workoutName} setWorkoutName={setWorkoutName} />
-        ) : (
-          <ExerciseForm
-            completed={completed}
-            description={description}
-            duration={duration}
-            items={items}
-            setCompleted={setCompleted}
-            setDescription={setDescription}
-            setDuration={setDuration}
-            setExerciseName={setExerciseName}
-          />
-        )}
-      </ModalUI.Body>
-      <ModalUI.Footer>
-        <Button variant='secondary' onClick={handleClose}>
-          Close
-        </Button>
+    <ModalAD
+      visible={show}
+      onCancel={handleClose}
+      title={isEdit ? 'Edit Workout' : isAdd ? 'Add Workout' : 'Add Exercise'}
+      footer={[
+        <Button key='cancel' variant='secondary' onClick={handleClose} className={classes.secondaryButton}>
+          Cancel
+        </Button>,
         <Button
+          key='submit'
           variant='primary'
           type='submit'
           // change click behaviour based on props passed
           onClick={isEdit ? handleEditWorkout : isAdd ? handleAddWorkout : handleAddExercise}
+          disabled={workoutName.length < 1}
+          className={classes.primaryButton}
         >
           Save Changes
         </Button>
-      </ModalUI.Footer>
-    </ModalUI>
+      ]}
+    >
+      {isEdit || isAdd ? (
+        <WorkoutForm workoutName={workoutName} setWorkoutName={setWorkoutName} />
+      ) : (
+        <ExerciseForm
+          completed={completed}
+          description={description}
+          duration={duration}
+          items={items}
+          setCompleted={setCompleted}
+          setDescription={setDescription}
+          setDuration={setDuration}
+          setExerciseName={setExerciseName}
+        />
+      )}
+    </ModalAD>
   )
+}
+
+const styles = {
+  primaryButton: {
+    background: '#849fc9',
+    borderColor: '#849fc9',
+    color: '#fff',
+    borderRadius: '0.3rem',
+    '&:hover': {
+      opacity: '0.5',
+      background: '#849fc9',
+      borderColor: '#849fc9',
+      color: '#fff'
+    },
+    '&:active': {
+      opacity: '1',
+      background: '#849fc9',
+      borderColor: '#849fc9',
+      color: '#fff'
+    }
+  },
+  secondaryButton: {
+    background: '#6c757d',
+    borderColor: '#6c757d',
+    color: '#fff',
+    borderRadius: '0.3rem',
+    '&:hover': {
+      opacity: '0.5',
+      background: '#6c757d',
+      borderColor: '#6c757d',
+      color: '#fff'
+    },
+    '&:active': {
+      opacity: '1',
+      background: '#6c757d',
+      borderColor: '#6c757d',
+      color: '#fff'
+    }
+  }
 }
 
 const mapDispatch = dispatch => ({
@@ -90,4 +131,4 @@ const mapDispatch = dispatch => ({
   updateWorkout: workout => dispatch(putWorkout(workout))
 })
 
-export default connect(null, mapDispatch)(Modal)
+export default withStyles(styles)(connect(null, mapDispatch)(Modal))

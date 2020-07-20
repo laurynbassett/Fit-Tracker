@@ -1,11 +1,49 @@
 import React from 'react'
-import { Form } from 'react-bootstrap'
+import { Checkbox, Col, Form, Input, Row, Select } from 'antd'
 
 export const ExerciseForm = props => {
   const { completed, description, duration, items, setCompleted, setDescription, setDuration, setExerciseName } = props
 
   return (
     <Form>
+      <Form.Item label='Duration (mins)'>
+        <Input type='duration' value={duration} onChange={e => setDuration(e.target.value)} />
+      </Form.Item>
+
+      <Form.Item label='Decription'>
+        <Input type='description' value={description} onChange={e => setDescription(e.target.value)} />
+      </Form.Item>
+
+      <Form.Item label='Select Exercise'>
+        <Select onChange={e => setExerciseName(e.target.value)}>
+          {items.map(item => (
+            <Select.Option key={item.id} value={item.name}>
+              {item.name}
+            </Select.Option>
+          ))}
+        </Select>
+      </Form.Item>
+
+      <Form.Item>
+        <Checkbox checked={completed} onChange={() => setCompleted(!completed)} id='completed' />
+      </Form.Item>
+    </Form>
+  )
+}
+
+export const WorkoutForm = props => {
+  const { workoutName, setWorkoutName } = props
+  return (
+    <Form>
+      <Form.Item label='Workout Name'>
+        <Input type='name' value={workoutName} onChange={e => setWorkoutName(e.target.value)} />
+      </Form.Item>
+    </Form>
+  )
+}
+
+/*
+ <Form>
       <Form.Group controlId='formBasicDuration'>
         <Form.Label>Duration (mins)</Form.Label>
         <Form.Control type='duration' value={duration} onChange={e => setDuration(e.target.value)} />
@@ -34,17 +72,4 @@ export const ExerciseForm = props => {
         />
       </Form.Group>
     </Form>
-  )
-}
-
-export const WorkoutForm = props => {
-  const { workoutName, setWorkoutName } = props
-  return (
-    <Form>
-      <Form.Group controlId='formBasicName'>
-        <Form.Label>Workout Name</Form.Label>
-        <Form.Control type='name' value={workoutName} onChange={e => setWorkoutName(e.target.value)} />
-      </Form.Group>
-    </Form>
-  )
-}
+*/

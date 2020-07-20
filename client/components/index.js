@@ -1,7 +1,8 @@
 // Re-export components to use outside of folder
-export { Login, Signup } from './auth-form'
+export { LoginForm, SignupForm } from './AuthForm'
 export { default as Analytics } from './Analytics'
-export { default as Form } from './Form'
+export { default as Calendar } from './Calendar'
+export { ExerciseForm, WorkoutForm } from './Form'
 export { default as Header } from './Header'
 export { default as Icon } from './Icon'
 export { default as ListWorkouts } from './ListWorkouts'

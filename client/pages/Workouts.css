@@ -21,3 +21,8 @@
 .workouts-list {
   width: 100%;
 }
+
+workout-text {
+  margin-top: 3rem;
+  font-size: 1.2rem;
+}

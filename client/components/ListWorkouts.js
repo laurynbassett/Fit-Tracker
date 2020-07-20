@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { PlusSquare } from 'react-bootstrap-icons'
-
+import { BsPlusSquare } from 'react-icons/bs'
 import SingleWorkout from './SingleWorkout'
 import './ListWorkouts.css'
 import Modal from './Modal'
@@ -15,7 +14,7 @@ export const ListWorkouts = ({ workouts }) => {
   return (
     <div id='list-workouts'>
       {workouts.map(workout => <SingleWorkout key={workout.id} workout={workout} />)}
-      <PlusSquare size={50} onClick={handleShow} />
+      <BsPlusSquare size={50} onClick={handleShow} />
       <Modal isAdd={true} show={show} handleClose={handleClose} handleShow={handleShow} />
     </div>
   )
