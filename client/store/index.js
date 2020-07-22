@@ -3,12 +3,13 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import loggerMiddleware from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
-import user from './user'
+import activities from './activities'
 import exercises from './exercises'
+import user from './user'
 import workouts from './workouts'
 
 // ---------- REDUCER---------- //
-const reducer = combineReducers({ user, exercises, workouts })
+const reducer = combineReducers({ activities, exercises, user, workouts })
 
 // ---------- MIDDLEWARE ---------- //
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, loggerMiddleware))
@@ -17,6 +18,7 @@ const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, loggerMi
 const store = createStore(reducer, middleware)
 
 export default store
-export * from './user'
+export * from './activities'
 export * from './exercises'
+export * from './user'
 export * from './workouts'

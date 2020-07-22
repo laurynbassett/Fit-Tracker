@@ -21,7 +21,7 @@ const AuthForm = props => {
       initialValues={{
         remember: true
       }}
-      onFinish={handleSubmit}
+      onFinish={e => handleSubmit(e, name)}
     >
       <Form.Item
         name='email'
@@ -80,11 +80,9 @@ const mapSignup = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  handleSubmit: evt => {
-    evt.preventDefault()
-    const formName = evt.target.name
-    const email = evt.target.email.value
-    const password = evt.target.password.value
+  handleSubmit: (evt, formName) => {
+    const email = evt.email
+    const password = evt.password
     dispatch(auth(email, password, formName))
   }
 })

@@ -52,6 +52,19 @@ export const logout = () => async dispatch => {
   }
 }
 
+export const postActivity = (activity) => async dispatch => {
+  try {
+    console.log('IN ACTIVITY STORE')
+    await axios.post('/api/')
+    console.log('IN ACTIVITY PAST AXIOS')
+
+    dispatch(setActivity(data))
+    history.push('/login')
+  } catch (err) {
+    console.error('Error logging out: ', err)
+  }
+}
+
 // ---------- REDUCER ---------- //
 export default function(state = defaultUser, action) {
   switch (action.type) {

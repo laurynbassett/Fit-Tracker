@@ -1,4 +1,4 @@
 const db = require('./database')
-const { Exercise, User, Workout } = require('./models')
+const { Exercise, Activity, User, Workout } = require('./models')
 
-module.exports = { db, Exercise, User, Workout }
+module.exports = { db, Exercise, Activity, User, Workout }

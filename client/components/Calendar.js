@@ -2,30 +2,41 @@ import React from 'react'
 import moment from 'moment'
 import { Badge, Calendar as ADCalendar } from 'antd'
 
-const Calendar = () => {
+const Calendar = props => {
+  const { activities, setSelectedDay } = props
+
+  function dateCellRender(value) {
+    const formattedValue = moment(value).date(value.date() - 1).format('L')
+    const matchingActivities = activities.filter(activity => moment(activity.date).format('L') === formattedValue)
+
+    if (matchingActivities.length) {
+      return (
+        <ul className='events'>
+          {matchingActivities.map(item => {
+            const text = `name: ${item.name}
+        description: ${item.description}
+        time: ${item.time}`
+
+            return (
+              <li key={item.id}>
+                <Badge status='default' text={text} />
+              </li>
+            )
+          })}
+        </ul>
+      )
+    }
+  }
+
   const handleSelect = e => {
-    console.log('E', moment(e).format('D'))
+    const date = moment(e).toDate()
+    console.dir(date)
+    console.log('MTH', date.getDate(), date.getMonth())
+
+    setSelectedDay(date)
   }
 
   return <ADCalendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} onSelect={handleSelect} />
-}
-
-function getListData(value) {
-  let listData
-  return listData || []
-}
-
-function dateCellRender(value) {
-  const listData = getListData(value)
-  return (
-    <ul className='events'>
-      {listData.map(item => (
-        <li key={item.content}>
-          <Badge status={item.type} text={item.content} />
-        </li>
-      ))}
-    </ul>
-  )
 }
 
 function getMonthData(value) {

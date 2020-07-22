@@ -1,7 +1,11 @@
 // Re-export components to use outside of folder
+export { default as ActivityList } from './ActivityList'
+export { default as AddActivity } from './AddActivity'
 export { LoginForm, SignupForm } from './AuthForm'
 export { default as Analytics } from './Analytics'
 export { default as Calendar } from './Calendar'
+export { default as DatePicker } from './DatePicker'
+export { default as EditActivity } from './EditActivity'
 export { ExerciseForm, WorkoutForm } from './Form'
 export { default as Header } from './Header'
 export { default as Icon } from './Icon'

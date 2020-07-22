@@ -1,7 +1,17 @@
-const { Workout, Exercise, db } = require('./database')
+const { Activity, Workout, Exercise, User, db } = require('./database')
 
 const yesterday = new Date(Date.now() - 24 * 60 * (60 * 1000))
 const nextWeek = new Date(Date.now() + 7 * 24 * 60 * (60 * 1000))
+
+const seedUsers = [
+  {
+    email: 'admin@a.com',
+    password: 'admin',
+    firstName: 'Admin',
+    lastName: 'Admin',
+    fullName: 'Admin Admin'
+  }
+]
 
 const seedWorkouts = [
   {
@@ -52,14 +62,20 @@ async function seed() {
   try {
     console.log('Seeding the database...')
     await db.sync({ force: true })
+    const user1 = await User.create(seedUsers[0])
+    await Workout.create(
+      { ...seedWorkouts[0], userId: user1.id },
+      {
+        include: [ Exercise ]
+      }
+    )
 
-    await Workout.create(seedWorkouts[0], {
-      include: [ Exercise ]
-    })
-
-    await Workout.create(seedWorkouts[1], {
-      include: [ Exercise ]
-    })
+    await Workout.create(
+      { ...seedWorkouts[1], userId: user1.id },
+      {
+        include: [ Exercise ]
+      }
+    )
   } catch (err) {
     console.error('Error seeding database: ', err)
   }

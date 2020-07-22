@@ -9,19 +9,19 @@ module.exports = {
     path: path.join(__dirname, 'server/public'),
     filename: 'bundle.js'
   },
-  devtool: 'source-map',
+  devtool: 'eval',
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        // loader: 'babel-loader',
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [ '@babel/preset-react' ]
-          }
-        }
+        loader: 'babel-loader',
+        exclude: /(node_modules|bower_components)/
+        // use: {
+        //   loader: 'babel-loader',
+        //   options: {
+        //     presets: [ '@babel/preset-react' ]
+        //   }
+        // }
       },
       {
         test: /\.css$/,
@@ -29,13 +29,4 @@ module.exports = {
       }
     ]
   }
-  // node: {
-  //   crypto: true,
-  //   stream: true,
-  //   fs: 'empty',
-  //   net: 'empty',
-  //   __filename: false,
-  //   __dirname: false
-  // },
-  // target: 'node'
 }

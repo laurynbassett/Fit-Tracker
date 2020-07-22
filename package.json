@@ -6,18 +6,18 @@
   "scripts": {
     "build-client-watch": "webpack -w",
     "serve": "node server",
-    "serve-dev": "nodemon --watch server --ignore ./public server",
+    "serve-dev": "nodemon --watch server --ignore server/public ./server",
     "seed": "node server/seed.js",
     "start-server": "nodemon server -e html,js,scss --ignore public --ignore client",
     "webpack": "webpack",
     "webpack-dev": "npm run webpack -- --mode=development --watch",
-    "start-dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server"
+    "start-dev": "npm run webpack-dev & npm run serve-dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "antd": "^4.4.2",
+    "antd": "^4.4.3",
     "axios": "^0.19.2",
     "babel-core": "^6.26.3",
     "babel-preset-stage-2": "^6.24.1",
@@ -55,7 +55,7 @@
     "@babel/core": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
-    "chokidar": "^3.4.0",
+    "chokidar": "^3.4.1",
     "watchpack": "^1.7.2",
     "webpack": "^4.43.0"
   }
