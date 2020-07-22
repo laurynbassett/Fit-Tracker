@@ -6,7 +6,7 @@ const Calendar = props => {
   const { activities, setSelectedDay } = props
 
   function dateCellRender(value) {
-    const formattedValue = moment(value).date(value.date() - 1).format('L')
+    const formattedValue = moment(value).date(value.date()).format('L')
     const matchingActivities = activities.filter(activity => moment(activity.date).format('L') === formattedValue)
 
     if (matchingActivities.length) {
@@ -19,7 +19,7 @@ const Calendar = props => {
 
             return (
               <li key={item.id}>
-                <Badge status='default' text={text} />
+                <Badge status={item.completed ? 'success' : 'default'} text={text} />
               </li>
             )
           })}
@@ -30,9 +30,6 @@ const Calendar = props => {
 
   const handleSelect = e => {
     const date = moment(e).toDate()
-    console.dir(date)
-    console.log('MTH', date.getDate(), date.getMonth())
-
     setSelectedDay(date)
   }
 

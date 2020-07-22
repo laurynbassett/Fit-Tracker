@@ -23,7 +23,6 @@ const App = props => {
     [ window.innerWidth ]
   )
 
-  console.log('isLoggedIn', props.isLoggedIn)
   return (
     <Row className='App'>
       {props.isLoggedIn && (

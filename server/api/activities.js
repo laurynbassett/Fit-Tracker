@@ -39,9 +39,10 @@ router.post('/', async (req, res, next) => {
 // PUT a single activity by id
 router.put('/:id', async (req, res, next) => {
   try {
+    console.log('ACT', req.body)
     const activity = await Activity.findByPk(+req.params.id)
     if (!activity) return res.sendStatus(404)
-    const [ numUpdated, updatedActivity ] = await Workout.update(req.body, {
+    const [ numUpdated, updatedActivity ] = await Activity.update(req.body, {
       where: { id: +req.params.id },
       returning: true
     })

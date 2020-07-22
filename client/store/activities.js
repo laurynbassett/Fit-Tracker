@@ -72,7 +72,7 @@ export default function(state = defaultActivities, action) {
     case UPDATE_ACTIVITY:
       const updatedActivity = state.map(activity => {
         if (activity.id === action.activity.id) {
-          return { ...activity, name: action.activity.name }
+          return action.activity
         }
         return activity
       })

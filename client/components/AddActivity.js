@@ -10,7 +10,7 @@ const AddActivity = props => {
     name: '',
     description: '',
     duration: 0,
-    date: moment(selectedDay),
+    date: moment.parseZone(selectedDay),
     time: moment().set({ hour: 0, minute: 0, second: 0, millisecond: 0 }),
     completed: false
   }
@@ -20,7 +20,7 @@ const AddActivity = props => {
     if (user) {
       const values = {
         ...formValues,
-        date: formValues['date'].format('YYYY-MM-DD'),
+        date: moment.parseZone(formValues['date']),
         time: formValues['time'].format('HH:mm'),
         userId: user.id
       }
@@ -41,7 +41,7 @@ const AddActivity = props => {
         <Slider min={0} max={200} step={5} />
       </Form.Item>
       <Form.Item name='date' label='Date' initialValue={defaultActivity.date}>
-        <DatePicker format='YYYY-MM-DD' />
+        <DatePicker format='YYYY-MM-DD' style={{ width: '10rem' }} />
       </Form.Item>
       <Form.Item name='time' label='Time' initialValue={defaultActivity.time}>
         <TimePicker format='HH:mm' />
